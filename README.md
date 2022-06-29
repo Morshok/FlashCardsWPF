@@ -46,4 +46,5 @@ This is the page you are presented with when clicking ***Study Flashcards***:
 As can be seen, simply select the topic of flashcards you want to study and keep on studying! To change questions simply hit the forwards and backwards buttons. In order to check for the right answer, simply click on the flashcard with your left mouse button and the answer will be revealed upon releasing the mouse button, as can be seen in the image below:
 ![Study Flashcard Page Answer](/ReadMeAssets/StudyFlashcardPage_Answer.png)
 
+As a final note, multiple choices flashcards are intended to be implemented together with the spaced repetition in the future.
 ___
