@@ -44,6 +44,8 @@ namespace FlashCardsWPF.Views
             ContentTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
 
             viewModel.SetCurrentQuestionNumberOutOfTotal(CurrentQuestionNumberOutOfTotal);
+
+            ContentTitle.Content = "Question: ";
         }
 
         private void PreviousQuestionButton_OnClicked(object sender, RoutedEventArgs e)

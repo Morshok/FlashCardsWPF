@@ -87,7 +87,7 @@
 
             <Button x:Name="QuitButton"     Content="Quit Application"      Height="50" DockPanel.Dock="Bottom" Margin="5" Click="QuitButton_OnClicked"     ClickMode="Release"/>
             <Button x:Name="CreateButton"   Content="Create New Flashcard"  Height="50" DockPanel.Dock="Top" Margin="5, 75, 5, 5" Click="CreateButton_OnClicked"   ClickMode="Release"/>
-            <Button x:Name="UpdateButton"   Content="Update Flashcard"      Height="50" DockPanel.Dock="Top" Margin="5" Click="UpdateButton_OnClicked"   ClickMode="Release"/>
+            <Button x:Name="UpdateButton"   Content="Update Flashcards"     Height="50" DockPanel.Dock="Top" Margin="5" Click="UpdateButton_OnClicked"   ClickMode="Release"/>
             <Button x:Name="StudyButton"    Content="Study Flashcards"      Height="50" DockPanel.Dock="Top" Margin="5" Click="StudyButton_OnClicked"    ClickMode="Release"/>
         </DockPanel>
 

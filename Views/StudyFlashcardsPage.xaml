@@ -60,6 +60,27 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
     <Grid Background="White">
@@ -88,7 +109,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="1">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
@@ -117,7 +138,7 @@
                         </Grid.RowDefinitions>
                         
                         <Label x:Name="ContentTitle" Grid.Row="0" Content="Question: " FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="ContentTextBlock" Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do in reprehenderit" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="ContentTextBlock" Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do in reprehenderit" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25, 0, 25, 0"/>
                         <Label Grid.Row="2" Content="{Binding CurrentQuestionNumberOutOfTotal}" FontSize="12" FontStyle="Italic" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="1" Margin="20, 0, 20, 0">

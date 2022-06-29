@@ -24,5 +24,30 @@ namespace FlashCardsWPF.Views
         {
             InitializeComponent();
         }
+
+        private void FlashcardsListView_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FlashcardSetsListView_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateFlashcardButton_OnClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteFlashcardButton_OnClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteSetButton_OnClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
