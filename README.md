@@ -1,1 +1,2 @@
-# FlashCardsWPF
+# FlashCardsWPF - A Flashcards Application
+___
