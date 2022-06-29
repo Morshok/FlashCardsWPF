@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlashCardsWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,34 +21,59 @@ namespace FlashCardsWPF.Views
     /// </summary>
     public partial class UpdateFlashcardPage : Page
     {
+        private UpdateFlashcardPageViewModel viewModel = new UpdateFlashcardPageViewModel();
+
         public UpdateFlashcardPage()
         {
+            DataContext = viewModel;
+
             InitializeComponent();
         }
 
         private void FlashcardsListView_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+            UpdateFlashcardButton.IsEnabled = true;
+            DeleteFlashcardButton.IsEnabled = true;
         }
 
         private void FlashcardSetsListView_SelectionChanged(object sender, RoutedEventArgs e)
         {
+            if (FlashcardsListView.Visibility == Visibility.Hidden) FlashcardsListView.Visibility = Visibility.Visible;
+            if (FlashCardTitle.Visibility == Visibility.Hidden) FlashCardTitle.Visibility = Visibility.Visible;
 
+            var topic = FlashcardSetsListView.SelectedItem as string;
+
+            viewModel.SelectedTopic = topic;
+            viewModel.UpdateQuestionsByTopic();
+
+            DeleteSetButton.IsEnabled = true;
         }
 
         private void UpdateFlashcardButton_OnClicked(object sender, RoutedEventArgs e)
         {
-
+            /*
+                
+            */
         }
 
         private void DeleteFlashcardButton_OnClicked(object sender, RoutedEventArgs e)
         {
+            var topic = FlashcardSetsListView.SelectedItem as string;
+            var question = FlashcardsListView.SelectedItem as string;
 
+            viewModel.DeleteFlashcard(topic, question);
+            viewModel.UpdateQuestionsByTopic();
         }
 
         private void DeleteSetButton_OnClicked(object sender, RoutedEventArgs e)
         {
+            var topic = FlashcardSetsListView.SelectedItem as string;
 
+            viewModel.DeleteTopic(topic);
+            viewModel.UpdateViewModel();
+
+            FlashcardsListView.Visibility = Visibility.Hidden;
+            FlashCardTitle.Visibility = Visibility.Hidden;
         }
     }
 }

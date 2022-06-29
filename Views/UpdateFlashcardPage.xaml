@@ -120,16 +120,16 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Content="Flashcard Set: " FontSize="16" FontWeight="Bold" Margin="20, 0, 0, 0" VerticalAlignment="Center"/>
-                <ListView Grid.Row="1" Margin="25, 0, 25, 25" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding UniqueTopics}" SelectionChanged="FlashcardSetsListView_SelectionChanged"/>
+                <ListView x:Name="FlashcardSetsListView" Grid.Row="1" Margin="25, 0, 25, 25" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding UniqueTopics}" SelectionChanged="FlashcardSetsListView_SelectionChanged"/>
 
-                <Label Grid.Column="1" Content="Flashcard: " FontSize="16" FontWeight="Bold" Margin="20, 0, 0, 0" VerticalAlignment="Center"/>
-                <ListView Grid.Row="1" Grid.Column="1" Margin="25, 0, 25, 25" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding UniqueTopics}" SelectionChanged="FlashcardsListView_SelectionChanged"/>
+                <Label    x:Name="FlashCardTitle" Grid.Column="1" Content="Flashcard: " FontSize="16" FontWeight="Bold" Margin="20, 0, 0, 0" VerticalAlignment="Center" Visibility="Hidden"/>
+                <ListView x:Name="FlashcardsListView" Grid.Row="1" Grid.Column="1" Margin="25, 0, 25, 25" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding QuestionsByTopic}" Visibility="Hidden" SelectionChanged="FlashcardsListView_SelectionChanged"/>
 
                 <Label Grid.Column="2" Content="Action: " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Margin="10, 0, 10, 25">
-                    <Button              Height="30" Margin="0, 10, 0, 0" Content="Update Flashcard" FontSize="10" x:Name="UpdateFlashcardButton" Click="UpdateFlashcardButton_OnClicked"/>
-                    <Button Grid.Row="1" Height="30" Margin="0, 10, 0, 0" Content="Delete Flashcard" FontSize="10" x:Name="DeleteFlashcardButton" Click="DeleteFlashcardButton_OnClicked"/>
-                    <Button Grid.Row="2" Height="30" Margin="0, 10, 0, 0" Content="Delete Set"       FontSize="10" x:Name="DeleteSetButton"       Click="DeleteSetButton_OnClicked"      />
+                    <Button              Height="30" Margin="0, 10, 0, 0" Content="Update Flashcard" FontSize="10" x:Name="UpdateFlashcardButton" Click="UpdateFlashcardButton_OnClicked" IsEnabled="False"/>
+                    <Button Grid.Row="1" Height="30" Margin="0, 10, 0, 0" Content="Delete Flashcard" FontSize="10" x:Name="DeleteFlashcardButton" Click="DeleteFlashcardButton_OnClicked" IsEnabled="False"/>
+                    <Button Grid.Row="2" Height="30" Margin="0, 10, 0, 0" Content="Delete Set"       FontSize="10" x:Name="DeleteSetButton"       Click="DeleteSetButton_OnClicked"       IsEnabled="False"/>
                 </StackPanel>
             </Grid>
         </Grid>

@@ -109,6 +109,16 @@ namespace FlashCardsWPF.SQLiteDatabase
             return Database.DeleteAsync(flashcard);
         }
 
+        public async Task DeleteItemAsync(string topic, string question)
+        {
+            await Database.QueryAsync<Flashcard>("DELETE FROM [Flashcard] WHERE topic == ? AND question == ?", topic, question);
+        }
+
+        public async Task DeleteTopicAsync(string topic)
+        {
+            await Database.QueryAsync<Flashcard>("DELETE FROM [Flashcard] WHERE topic == ?", topic);
+        }
+
         public async Task<int> DropTableAsync()
         {
             return await Database.DropTableAsync<Flashcard>();

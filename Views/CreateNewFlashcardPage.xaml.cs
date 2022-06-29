@@ -40,33 +40,6 @@ namespace FlashCardsWPF.Views
             AnswerTextBox.Text = string.Empty;
         }
 
-        private ListBoxItem CreateAnswerOptionTemplate()
-        {
-            ListBoxItem listBoxItem = new ListBoxItem();
-
-            ColumnDefinition column1 = new ColumnDefinition();
-            ColumnDefinition column2 = new ColumnDefinition();
-            ColumnDefinition column3 = new ColumnDefinition();
-            column1.Width = new GridLength(75);
-            column2.Width = new GridLength(1, GridUnitType.Star);
-            column3.Width = new GridLength(1, GridUnitType.Star);
-
-            Grid grid = new Grid();
-            grid.ColumnDefinitions.Add(column1);
-            grid.ColumnDefinitions.Add(column2);
-            grid.ColumnDefinitions.Add(column3);
-
-            Label answerText = new Label();
-            answerText.Content = "test123";
-
-            TextBox inputTextbox = new TextBox();
-            inputTextbox.Text = "Test123";
-            inputTextbox.VerticalContentAlignment = VerticalAlignment.Center;
-            inputTextbox.Width = 175;
-
-            return listBoxItem;
-        }
-
         private void TopicComboBox_Loaded(object sender, RoutedEventArgs e)
         {
             TopicComboBox.DataContext = viewModel;
