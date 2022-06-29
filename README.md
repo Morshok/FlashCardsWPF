@@ -34,10 +34,12 @@ When first running the application, you will be presented with a page that looks
 To quit the application, simply hit Quit Application. Otherwise, you can create, update and study your created flashcards by clicking the corresponding buttons.
 
 This is the page you are presented with when clicking ***Create New Flashcard***:
-![Create New Flashcard Page](/ReadMeAssets/CreateNewFlashcardPage.png)
+![Create New Flashcard Page](/ReadMeAssets/CreateNewFlashcardPage.png)<br>
+Put simply, just fill in all the information required by the form to create your own flashcards.
 
 This is the page you are presented with when clicking ***Update Flashcards***:
-![Update Flashcard Page](/ReadMeAssets/UpdateFlashcardPage.png)
+![Update Flashcard Page](/ReadMeAssets/UpdateFlashcardPage.png)<br>
+For the moment being, only deleting an entire topic or deleting a question from a topic is currently supported bu this page. Subsequently, if you were to delete the last question of a specific topic, that topic would also be deleted from the database. In the future, updating information regarding individual questions will also be supported.
 
 This is the page you are presented with when clicking ***Study Flashcards***:
 ![Study Flashcard Page Question](/ReadMeAssets/StudyFlashcardPage_Question.png)<br>
