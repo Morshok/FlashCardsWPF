@@ -32,7 +32,7 @@ namespace FlashCardsWPF.Views
 
         private void FlashcardsListView_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            UpdateFlashcardButton.IsEnabled = true;
+            //UpdateFlashcardButton.IsEnabled = true; //To be added
             DeleteFlashcardButton.IsEnabled = true;
         }
 
@@ -52,7 +52,7 @@ namespace FlashCardsWPF.Views
         private void UpdateFlashcardButton_OnClicked(object sender, RoutedEventArgs e)
         {
             /*
-                
+                // To be added
             */
         }
 
