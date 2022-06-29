@@ -63,6 +63,19 @@ namespace FlashCardsWPF.SQLiteDatabase
 
             return result;
         }
+        public List<string> GetAnswersByTopic(string topic)
+        {
+            List<string> result = new List<string>();
+
+            List<Flashcard> resultingFlashcards = Database.QueryAsync<Flashcard>("SELECT Answer FROM [Flashcard] WHERE Topic == ?", topic).Result;
+
+            foreach (Flashcard flashcard in resultingFlashcards)
+            {
+                result.Add(flashcard.Answer);
+            }
+
+            return result;
+        }
 
         public int GetNumberOfQuestionsByTopic(string topic)
         {

@@ -106,19 +106,18 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="75"/>
                     </Grid.RowDefinitions>
-                    <Grid Margin="25, 0, 25, 15" Background="White">
+                    <Grid Margin="25, 0, 25, 15" Background="White" MouseLeftButtonUp="OnContentGrid_MouseLeftButtonUp">
                         <Grid.BitmapEffect>
                             <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
                         </Grid.BitmapEffect>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
                         
-                        <Label Grid.Row="0" Content="Question: " FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="QuestionTextBlock" Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do in reprehenderit" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <ComboBox Grid.Row="2" Height="20" MaxDropDownHeight="115" VerticalAlignment="Top" Margin="25, 15, 25, 0"/>
+                        <Label x:Name="ContentTitle" Grid.Row="0" Content="Question: " FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="ContentTextBlock" Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do in reprehenderit" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <Label Grid.Row="2" Content="{Binding CurrentQuestionNumberOutOfTotal}" FontSize="12" FontStyle="Italic" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="1" Margin="20, 0, 20, 0">
@@ -127,8 +126,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-
-                        <Button x:Name="CheckAnswerButton"      Height="40" Margin="5, 0, 5, 15" Grid.Column="1" Content="Check"/>
+                        
                         <Button x:Name="PreviousQuestionButton" Height="40" Margin="5, 0, 5, 15"                 fa:Awesome.Content="Backward"  TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" Click="PreviousQuestionButton_OnClicked" IsEnabled="False"/>
                         <Button x:Name="NextQuestionButton"     Height="40" Margin="5, 0, 5, 15" Grid.Column="2" fa:Awesome.Content="Forward"   TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" Click="NextQuestionButton_OnClicked"/>
 

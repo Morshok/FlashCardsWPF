@@ -21,6 +21,9 @@ namespace FlashCardsWPF.ViewModels
         private List<string> _questionsByTopic = new List<string>();
         public List<string> QuestionsByTopic { get { return _questionsByTopic; } set { _questionsByTopic = value; OnPropertyChanged("QuestionsByTopic"); } }
 
+        private List<string> _answersByTopic = new List<string>();
+        public List<string> AnswersByTopic { get { return _answersByTopic; } set { _answersByTopic = value; OnPropertyChanged("AnswersByTopic"); } }
+
         private int _numberOfQuestionsByTopic = 0;
         public int NumberOfQuestionsByTopic { get { return _numberOfQuestionsByTopic; } set { _numberOfQuestionsByTopic = value; OnPropertyChanged("NumberOfQuestionsByTopic"); } }
 
@@ -29,6 +32,7 @@ namespace FlashCardsWPF.ViewModels
             UniqueTopics = new List<string>();
             SelectedTopic = string.Empty;
             QuestionsByTopic = new List<string>();
+            AnswersByTopic = new List<string>();
 
             PrepareViewModel();
         }
@@ -46,6 +50,7 @@ namespace FlashCardsWPF.ViewModels
 
             FlashcardDatabase database = await FlashcardDatabase.Instance;
             QuestionsByTopic = database.GetQuestionsByTopic(SelectedTopic);
+            AnswersByTopic = database.GetAnswersByTopic(SelectedTopic);
 
             NumberOfQuestionsByTopic = database.GetNumberOfQuestionsByTopic(SelectedTopic);
         }
@@ -59,5 +64,7 @@ namespace FlashCardsWPF.ViewModels
         {
             return QuestionsByTopic[index]; 
         }
+
+        public string GetAnswerText(int index) { return AnswersByTopic[index]; }
     }
 }

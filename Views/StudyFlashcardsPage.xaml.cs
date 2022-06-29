@@ -23,6 +23,8 @@ namespace FlashCardsWPF.Views
     {
         private StudyFlashcardsPageViewModel viewModel = new StudyFlashcardsPageViewModel();
         private int CurrentQuestionNumberOutOfTotal = 1;
+        private bool isDisplayingQuestion = true;
+
         public StudyFlashcardsPage()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace FlashCardsWPF.Views
             CurrentQuestionNumberOutOfTotal = 1;
 
             ContentGrid.Visibility = Visibility.Visible;
-            QuestionTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
+            ContentTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
 
             viewModel.SetCurrentQuestionNumberOutOfTotal(CurrentQuestionNumberOutOfTotal);
         }
@@ -53,7 +55,8 @@ namespace FlashCardsWPF.Views
 
             viewModel.SetCurrentQuestionNumberOutOfTotal(CurrentQuestionNumberOutOfTotal);
 
-            QuestionTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
+            ContentTitle.Content = "Question: ";
+            ContentTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
         }
 
         private void NextQuestionButton_OnClicked(object sender, RoutedEventArgs e)
@@ -68,7 +71,24 @@ namespace FlashCardsWPF.Views
 
             viewModel.SetCurrentQuestionNumberOutOfTotal(CurrentQuestionNumberOutOfTotal);
 
-            QuestionTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
+            ContentTitle.Content = "Question: ";
+            ContentTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
+        }
+
+        private void OnContentGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            isDisplayingQuestion = !isDisplayingQuestion;
+
+            if(isDisplayingQuestion)
+            {
+                ContentTitle.Content = "Question: ";
+                ContentTextBlock.Text = viewModel.GetQuestionText(CurrentQuestionNumberOutOfTotal - 1);
+            }
+            else
+            {
+                ContentTitle.Content = "Answer: ";
+                ContentTextBlock.Text = viewModel.GetAnswerText(CurrentQuestionNumberOutOfTotal - 1);
+            }
         }
     }
 }

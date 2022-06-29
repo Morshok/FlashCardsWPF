@@ -60,33 +60,27 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <DataTemplate x:Key="AnswerListBoxItem">
-            <ListBoxItem>
-                <Grid Margin="20, 0, 0, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="75" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Answer #1: "/>
-                    <TextBox Grid.Column="1" Text="Tell me why" VerticalContentAlignment="Center" Width="175"/>
-                    <RadioButton Grid.Column="2" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="25, 0, 0, 0">
-                        <RadioButton.Style>
-                            <Style TargetType="{x:Type RadioButton}">
-                                <Setter Property="Foreground" Value="Red" />
-                                <Setter Property="fa:Awesome.Content" Value="Close" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsChecked" Value="True">
-                                        <Setter Property="Foreground" Value="SpringGreen" />
-                                        <Setter Property="fa:Awesome.Content" Value="Check" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </RadioButton.Style>
-                    </RadioButton>
-                </Grid>
-            </ListBoxItem>
-        </DataTemplate>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
     <Grid Background="White">
@@ -147,8 +141,8 @@
 
                 <Button Grid.Row="2" Content="Create New Flashcard" Margin="30, 0, 20, 0" Height="50" VerticalAlignment="Top" Click="CreateNewFlashcardButton_OnClicked" ClickMode="Release"/>
 
-                <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Flashcards within Topic:" FontSize="12" Foreground="Black" FontStyle="Normal" FontWeight="Bold"/>
-                <ListView x:Name="TopicFlashcardsListView" Grid.Row="1" Grid.Column="1" Margin="10, 10, 10, 18.5" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding QuestionsByTopic}"/>
+                <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Flashcards within topic:" FontSize="12" Foreground="Black" FontStyle="Normal" FontWeight="Bold"/>
+                <ListView x:Name="TopicFlashcardsListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="10, 20, 10, 30" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding QuestionsByTopic}"/>
 
             </Grid>
 
