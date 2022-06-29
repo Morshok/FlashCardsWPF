@@ -1,0 +1,98 @@
+﻿<Window x:Class="FlashCardsWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlashCardsWPF"
+        mc:Ignorable="d"
+        Title="FlashCards" Height="450" Width="800"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                        <GradientStop Color="#FFDDDDDD" Offset="0.0"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.3"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                                <GradientStop Color="#FFD62672" Offset="0.0"/>
+                                <GradientStop Color="#FFD62672" Offset="0.3"/>
+                                <GradientStop Color="#FFFF815B" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Frame NavigationUIVisibility="Hidden" Grid.Row="0" Grid.Column="0">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                    <GradientStop Color="#FFD62672" Offset="0.0"/>
+                    <GradientStop Color="#FFD62672" Offset="0.3"/>
+                    <GradientStop Color="#FFFF815B" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+            <Frame.Content>
+                <Label Content="Welcome to Flashcards" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold" FontStyle="Normal"/>
+            </Frame.Content>
+        </Frame>
+
+        <DockPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" LastChildFill="False">
+
+            <DockPanel.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                    <GradientStop Color="Gray" Offset="0.0"/>
+                    <GradientStop Color="Gray" Offset="0.3"/>
+                    <GradientStop Color="White" Offset="1.0"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+
+            <Button x:Name="QuitButton"     Content="Quit Application"      Height="50" DockPanel.Dock="Bottom" Margin="5" Click="QuitButton_OnClicked"     ClickMode="Release"/>
+            <Button x:Name="CreateButton"   Content="Create New Flashcard"  Height="50" DockPanel.Dock="Top" Margin="5, 75, 5, 5" Click="CreateButton_OnClicked"   ClickMode="Release"/>
+            <Button x:Name="UpdateButton"   Content="Update Flashcard"      Height="50" DockPanel.Dock="Top" Margin="5" Click="UpdateButton_OnClicked"   ClickMode="Release"/>
+            <Button x:Name="StudyButton"    Content="Study Flashcards"      Height="50" DockPanel.Dock="Top" Margin="5" Click="StudyButton_OnClicked"    ClickMode="Release"/>
+        </DockPanel>
+
+        <Frame x:Name="PageFrame" Background="Transparent" Grid.Column="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden">
+            
+        </Frame>
+    </Grid>
+</Window>

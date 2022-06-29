@@ -1,0 +1,142 @@
+﻿<Page x:Class="FlashCardsWPF.Views.StudyFlashcardsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:local="clr-namespace:FlashCardsWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="550"
+      Title="StudyFlashcardsPage">
+
+    <Page.Resources>
+        <Style TargetType="{x:Type Frame}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                        <GradientStop Color="#FFD62672" Offset="0.0"/>
+                        <GradientStop Color="#FFD62672" Offset="0.3"/>
+                        <GradientStop Color="#FFFF815B" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                        <GradientStop Color="#FFDDDDDD" Offset="0.0"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.3"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                                <GradientStop Color="#FFD62672" Offset="0.0"/>
+                                <GradientStop Color="#FFD62672" Offset="0.3"/>
+                                <GradientStop Color="#FFFF815B" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Frame>
+            <Frame.Content>
+                <Label Content="Study Flashcard Set" Margin="25, 0, 0, 0" FontSize="20" FontWeight="Bold" FontStyle="Normal" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Frame.Content>
+        </Frame>
+
+        <Grid Grid.Row="1" Background="White" Margin="25">
+            <Grid.BitmapEffect>
+                <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+            </Grid.BitmapEffect>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Flashcard Sets: " FontSize="16" FontWeight="Bold" Margin="20, 0, 0, 0" VerticalAlignment="Center"/>
+                <ListView Grid.Row="1" Margin="25, 0, 25, 25" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding UniqueTopics}" SelectionChanged="FlashcardsListView_SelectionChanged"/>
+                <Label Grid.Column="1" Content="{Binding SelectedTopic}" FontSize="16" FontWeight="Bold" Margin="20, 0, 0, 0" VerticalAlignment="Center"/>
+                <Grid x:Name="ContentGrid" Visibility="Hidden" Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="75"/>
+                    </Grid.RowDefinitions>
+                    <Grid Margin="25, 0, 25, 15" Background="White">
+                        <Grid.BitmapEffect>
+                            <DropShadowBitmapEffect Color="DimGray" ShadowDepth="2"/>
+                        </Grid.BitmapEffect>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Grid.Row="0" Content="Question: " FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="QuestionTextBlock" Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do in reprehenderit" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <ComboBox Grid.Row="2" Height="20" MaxDropDownHeight="115" VerticalAlignment="Top" Margin="25, 15, 25, 0"/>
+                        <Label Grid.Row="2" Content="{Binding CurrentQuestionNumberOutOfTotal}" FontSize="12" FontStyle="Italic" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="20, 0, 20, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="CheckAnswerButton"      Height="40" Margin="5, 0, 5, 15" Grid.Column="1" Content="Check"/>
+                        <Button x:Name="PreviousQuestionButton" Height="40" Margin="5, 0, 5, 15"                 fa:Awesome.Content="Backward"  TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" Click="PreviousQuestionButton_OnClicked" IsEnabled="False"/>
+                        <Button x:Name="NextQuestionButton"     Height="40" Margin="5, 0, 5, 15" Grid.Column="2" fa:Awesome.Content="Forward"   TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" Click="NextQuestionButton_OnClicked"/>
+
+                    </Grid>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>
