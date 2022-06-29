@@ -16,3 +16,13 @@ This project utilizes the following technologies:
 - Windows Presentation Foundation
 
 ### How To Use The Application
+
+![Main Page](/ReadMeAssets/WelcomePage.png)
+
+![Create New Flashcard Page](/ReadMeAssets/CreateNewFlashcardPage.png)
+
+![Update Flashcard Page](/ReadMeAssets/UpdateFlashcardPage.png)
+
+![Study Flashcard Page Question](/ReadMeAssets/StudyFlashcardPage_Question.png)
+
+![Study Flashcard Page Answer](/ReadMeAssets/StudyFlashcardPage_Answer.png)
