@@ -30,21 +30,21 @@ ___
 ### How To Use The Application:
 
 When first running the application, you will be presented with a page that looks like the following:
-![Main Page](/ReadMeAssets/WelcomePage.png)<br>
+![Main Page](https://github.com/Morshok/readme-images/blob/master/FlashcardsWPF/WelcomePage.png)<br>
 To quit the application, simply hit Quit Application. Otherwise, you can create, update and study your created flashcards by clicking the corresponding buttons.
 
 This is the page you are presented with when clicking ***Create New Flashcard***:
-![Create New Flashcard Page](/ReadMeAssets/CreateNewFlashcardPage.png)<br>
+![Create New Flashcard Page](https://github.com/Morshok/readme-images/blob/master/FlashcardsWPF/CreateNewFlashcardPage.png)<br>
 Put simply, just fill in all the information required by the form to create your own flashcards.
 
 This is the page you are presented with when clicking ***Update Flashcards***:
-![Update Flashcard Page](/ReadMeAssets/UpdateFlashcardPage.png)<br>
+![Update Flashcard Page](https://github.com/Morshok/readme-images/blob/master/FlashcardsWPF/UpdateFlashcardPage.png)<br>
 For the moment being, only deleting an entire topic or deleting a question from a topic is currently supported bu this page. Subsequently, if you were to delete the last question of a specific topic, that topic would also be deleted from the database. In the future, updating information regarding individual questions will also be supported.
 
 This is the page you are presented with when clicking ***Study Flashcards***:
-![Study Flashcard Page Question](/ReadMeAssets/StudyFlashcardPage_Question.png)<br>
+![Study Flashcard Page Question](https://github.com/Morshok/readme-images/blob/master/FlashcardsWPF/StudyFlashcardPage_Question.png)<br>
 As can be seen, simply select the topic of flashcards you want to study and keep on studying! To change questions simply hit the forwards and backwards buttons. In order to check for the right answer, simply click on the flashcard with your left mouse button and the answer will be revealed upon releasing the mouse button, as can be seen in the image below:
-![Study Flashcard Page Answer](/ReadMeAssets/StudyFlashcardPage_Answer.png)
+![Study Flashcard Page Answer](https://github.com/Morshok/readme-images/blob/master/FlashcardsWPF/StudyFlashcardPage_Answer.png)
 
 As a final note, multiple choices flashcards are intended to be implemented together with the spaced repetition in the future.
 ___
