@@ -30,7 +30,7 @@ ___
 ### How To Use The Application:
 
 When first running the application, you will be presented with a page that looks like the following:
-![Main Page](https://github.com/Morshok/readme-images/blob/master/FlashcardsWPF/WelcomePage.png)<br>
+![Main Page](https://github.com/Morshok/readme-images/blob/master/FlashcardsWPF/WelcomePage.png?raw=true)<br>
 To quit the application, simply hit Quit Application. Otherwise, you can create, update and study your created flashcards by clicking the corresponding buttons.
 
 This is the page you are presented with when clicking ***Create New Flashcard***:
